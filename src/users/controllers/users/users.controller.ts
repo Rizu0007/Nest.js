@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Req, Res } from '@nestjs/common';
+import { Body, Controller, Get, Post, Req, Res, UsePipes, ValidationPipe } from '@nestjs/common';
 import { Response, Request } from 'express';
 import { Userdetails } from '../dtos/userDetail';
 
@@ -16,9 +16,11 @@ getUserPost(){
 }]
 }
 
-@Post()
+@Post('create')
+@UsePipes(new ValidationPipe())
 postUser(@Body() userData:Userdetails){
-    console.log(request.body)
-   response.send( "User created successfully")
+    console.log(userData);
+    return {}
+   
 }
 }
