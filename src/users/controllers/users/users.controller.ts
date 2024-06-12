@@ -38,7 +38,7 @@ export class UsersController {
 
   @Get(':id')
   getPostById(@Param('id' , ParseIntPipe)  id:string){
-  console.log(id)
+  console.log(id, "the id ")
   return{}
   }
 }
